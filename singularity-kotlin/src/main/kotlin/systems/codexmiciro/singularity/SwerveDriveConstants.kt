@@ -6,13 +6,16 @@
 
 package systems.codexmicro.singularity
 
-final class SwerveDriveConstants() {
-  var gyroId: Int = 0
+final class SwerveDriveConstants(gyroId: Int, wheelBaseMeters: Double, trackWidthMeters: Double) {
+  var gyroId: Int
 
-  init {}
+  var wheelBaseMeters: Double
+  var trackWidthMeters: Double
 
-  fun withGyroId(gyroId: Int): SwerveDriveConstants {
+  init {
     this.gyroId = gyroId
-    return this
+
+    this.wheelBaseMeters = wheelBaseMeters
+    this.trackWidthMeters = trackWidthMeters
   }
 }
