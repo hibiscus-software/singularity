@@ -6,7 +6,7 @@
 
 package systems.codexmicro.singularity.motor
 
-enum class MotorType {
+enum class SwerveMotorType {
   NONE,
   TALON_FX,
   SPARK_MAX

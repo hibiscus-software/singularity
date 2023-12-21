@@ -34,9 +34,9 @@ dependencies {
   // This dependency is used internally, and not exposed to consumers on their own compile classpath.
   implementation(libs.guava)
 
-  implementation("edu.wpi.first.wpilibj:wpilibj-java:2023.4.3")
-  implementation("edu.wpi.first.wpimath:wpimath-java:2023.4.3")
-  implementation("edu.wpi.first.wpiutil:wpiutil-java:2023.4.3")
+  implementation("edu.wpi.first.wpilibj:wpilibj-java:2024.1.1-beta-4")
+  implementation("edu.wpi.first.wpimath:wpimath-java:2024.1.1-beta-4")
+  implementation("edu.wpi.first.wpiutil:wpiutil-java:2024.1.1-beta-4")
 
   implementation("com.ctre.phoenix6:wpiapi-java:24.0.0-beta-5")
 }

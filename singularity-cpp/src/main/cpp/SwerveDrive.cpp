@@ -3,3 +3,9 @@
  * licensed under the terms of the MIT license which can be found in the
  * root directory of this project.
  */
+
+#include "singularity/SwerveDrive.hpp"
+
+using namespace singularity;
+
+void SwerveDrive::Drive() {}

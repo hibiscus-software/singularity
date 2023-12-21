@@ -6,16 +6,20 @@
 
 package systems.codexmicro.singularity
 
-import systems.codexmicro.singularity.motor.MotorType
-import edu.wpi.first.math.kinematics.SwerveDriveOdometry
-import edu.wpi.first.math.kinematics.SwerveDriveKinematics
 import edu.wpi.first.math.geometry.Translation2d
-import edu.wpi.first.wpilibj.drive.RobotDriveBase
+import edu.wpi.first.math.kinematics.SwerveDriveKinematics
+import edu.wpi.first.math.kinematics.SwerveDriveOdometry
 import edu.wpi.first.util.sendable.Sendable
 import edu.wpi.first.util.sendable.SendableBuilder
 import edu.wpi.first.util.sendable.SendableRegistry
+import edu.wpi.first.wpilibj.drive.RobotDriveBase
+import systems.codexmicro.singularity.motor.SwerveMotorType
 
-class SwerveDrive(swerveConstants: SwerveDriveConstants, moduleConstants: Array<SwerveModuleConstants>, motorType: systems.codexmicro.singularity.motor.MotorType) : RobotDriveBase(), Sendable, AutoCloseable {
+class SwerveDrive(
+    swerveConstants: SwerveDriveConstants,
+    moduleConstants: Array<SwerveModuleConstants>,
+    motorType: SwerveMotorType
+) : RobotDriveBase(), Sendable, AutoCloseable {
   private val swerveModules: Array<SwerveModule>
 
   private val swerveKinematics: SwerveDriveKinematics
@@ -24,29 +28,48 @@ class SwerveDrive(swerveConstants: SwerveDriveConstants, moduleConstants: Array<
   init {
     swerveModules =
         Array<SwerveModule>(4) {
-          SwerveModule(0, moduleConstants[0], motorType),
-          SwerveModule(1, moduleConstants[1], motorType),
-          SwerveModule(2, moduleConstants[2], motorType),
+          SwerveModule(0, moduleConstants[0], motorType)
+          SwerveModule(1, moduleConstants[1], motorType)
+          SwerveModule(2, moduleConstants[2], motorType)
           SwerveModule(3, moduleConstants[3], motorType)
         }
 
-    swerveKinematics = SwerveDriveKinematics(
-        Translation2d(swerveConstants.wheelBaseMeters / 2.0, swerveConstants.trackWidthMeters / 2.0),
-        Translation2d(swerveConstants.wheelBaseMeters / 2.0, -swerveConstants.trackWidthMeters / 2.0),
-        Translation2d(-swerveConstants.wheelBaseMeters / 2.0, swerveConstants.trackWidthMeters / 2.0),
-        Translation2d(-swerveConstants.wheelBaseMeters / 2.0, -swerveConstants.trackWidthMeters / 2.0)
-    )
+    swerveKinematics =
+        SwerveDriveKinematics(
+            Translation2d(
+                swerveConstants.wheelBaseMeters / 2.0,
+                swerveConstants.trackWidthMeters / 2.0
+            ),
+            Translation2d(
+                swerveConstants.wheelBaseMeters / 2.0,
+                -swerveConstants.trackWidthMeters / 2.0
+            ),
+            Translation2d(
+                -swerveConstants.wheelBaseMeters / 2.0,
+                swerveConstants.trackWidthMeters / 2.0
+            ),
+            Translation2d(
+                -swerveConstants.wheelBaseMeters / 2.0,
+                -swerveConstants.trackWidthMeters / 2.0
+            )
+        )
 
-    swerveOdometry = SwerveDriveOdometry(swerveKinematics, )
+    swerveOdometry =
+        SwerveDriveOdometry(
+            swerveKinematics,
+        )
   }
 
   override fun close() {
     SendableRegistry.remove(this)
   }
 
-  fun drive(translation: Translation2d, rotation: Double, isFieldRelative: Boolean, isOpenLoop: Boolean) {
-
-  }
+  fun drive(
+      translation: Translation2d,
+      rotation: Double,
+      isFieldRelative: Boolean,
+      isOpenLoop: Boolean
+  ) {}
 
   override fun stopMotor() {
     // TODO: Stop motors/modules
