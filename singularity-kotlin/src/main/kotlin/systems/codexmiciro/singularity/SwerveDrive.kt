@@ -44,6 +44,10 @@ class SwerveDrive(swerveConstants: SwerveDriveConstants, moduleConstants: Array<
     SendableRegistry.remove(this)
   }
 
+  fun drive(translation: Translation2d, rotation: Double, isFieldRelative: Boolean, isOpenLoop: Boolean) {
+
+  }
+
   override fun stopMotor() {
     // TODO: Stop motors/modules
     feed()

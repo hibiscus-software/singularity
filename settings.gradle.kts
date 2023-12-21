@@ -4,4 +4,5 @@ plugins {
 }
 
 rootProject.name = "singularity"
+include("singularity-cpp")
 include("singularity-kotlin")
