@@ -6,6 +6,7 @@
 
 package systems.codexmicro.singularity.motor
 
+import com.ctre.phoenix6.configs.MotorOutputConfigs
 import com.ctre.phoenix6.configs.TalonFXConfiguration
 import com.ctre.phoenix6.hardware.TalonFX
 import com.ctre.phoenix6.signals.NeutralModeValue
@@ -14,10 +15,10 @@ import systems.codexmicro.singularity.control.PIDConstants
 class TalonFXSwerveMotor(motor: TalonFX, isDriveMotor: Boolean) : SwerveMotor() {
   override var isDriveMotor: Boolean
 
-  var motor: TalonFX
-  var talonFXConfig = TalonFXConfiguration()
+  private var motor: TalonFX
+  private var talonFXConfig = TalonFXConfiguration()
 
-  var hasConfigChanged: Boolean = false
+  private var hasConfigChanged: Boolean = false
 
   init {
     this.isDriveMotor = isDriveMotor
@@ -84,7 +85,9 @@ class TalonFXSwerveMotor(motor: TalonFX, isDriveMotor: Boolean) : SwerveMotor() 
     }
   }
 
-  override fun factoryDefaults() {}
+  override fun factoryDefaults() {
+    var motorOutputConfigs = MotorOutputConfigs()
+  }
 
   override fun clearFaults() {
     motor.clearStickyFaults()

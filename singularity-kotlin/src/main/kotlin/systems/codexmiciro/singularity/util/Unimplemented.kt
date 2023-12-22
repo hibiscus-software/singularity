@@ -4,10 +4,7 @@
  * root directory of this project.
  */
 
-package systems.codexmicro.singularity.motor
+package systems.codexmicro.singularity.util
 
-enum class SwerveMotorType {
-  NONE,
-  TALONFX,
-  SPARKMAX
-}
+/** Specifies that the method is unimplemented for the class. */
+annotation class Unimplemented(val reason: String)

@@ -10,10 +10,12 @@ repositories {
   // Use Maven Central for resolving dependencies.
   mavenCentral()
 
+  // WPILib
   maven {
     url = uri("https://frcmaven.wpi.edu/artifactory/release/")
   }
 
+  // CTRE Phoenix
   maven {
     url = uri("https://maven.ctr-electronics.com/release/")
   }
@@ -34,10 +36,12 @@ dependencies {
   // This dependency is used internally, and not exposed to consumers on their own compile classpath.
   implementation(libs.guava)
 
+  // WPILib
   implementation("edu.wpi.first.wpilibj:wpilibj-java:2024.1.1-beta-4")
   implementation("edu.wpi.first.wpimath:wpimath-java:2024.1.1-beta-4")
   implementation("edu.wpi.first.wpiutil:wpiutil-java:2024.1.1-beta-4")
 
+  // CTRE Phoenix
   implementation("com.ctre.phoenix6:wpiapi-java:24.0.0-beta-5")
 }
 

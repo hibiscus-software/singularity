@@ -4,10 +4,9 @@
  * root directory of this project.
  */
 
-package systems.codexmicro.singularity.motor
+package systems.codexmicro.singularity.encoder
 
-enum class SwerveMotorType {
+enum class SwerveEncoderType {
   NONE,
-  TALONFX,
-  SPARKMAX
+  CANCODER,
 }
