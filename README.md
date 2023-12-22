@@ -1,4 +1,4 @@
-# Singularity
+![Singularity Logo](https://raw.githubusercontent.com/codexmicrosystems/brand-guidelines/main/logo/singularity/sing-rect-logo-light.png)
 
 ## Features
 * Language Support for Java, C++, and Python
