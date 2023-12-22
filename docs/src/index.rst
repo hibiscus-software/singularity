@@ -1,10 +1,14 @@
-Singularity
-=====================================
+Singularity Documentation
+=========================
 
-Testing words.
+Welcome to the Singularity documentation.
+
+Singularity is a swerve drive library for FRC that makes it much easier to
+program swerve drive.
 
 .. toctree::
-  :maxdepth: 2
-  :titlesonly:
+  :maxdepth: 1
   :caption: Getting Started
   :hidden:
+
+  getting-started/installation

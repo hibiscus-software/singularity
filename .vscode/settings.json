@@ -1,5 +1,6 @@
 {
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google }"
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google }",
+  "esbonio.sphinx.confDir": ""
 }
