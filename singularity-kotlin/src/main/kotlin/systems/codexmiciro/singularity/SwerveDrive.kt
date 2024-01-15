@@ -37,20 +37,20 @@ class SwerveDrive(
     swerveKinematics =
         SwerveDriveKinematics(
             Translation2d(
-                swerveConstants.wheelBaseMeters / 2.0,
-                swerveConstants.trackWidthMeters / 2.0
+                swerveConstants.wheelBaseMeters.divide(2.0),
+                swerveConstants.trackWidthMeters.divide(2.0)
             ),
             Translation2d(
-                swerveConstants.wheelBaseMeters / 2.0,
-                -swerveConstants.trackWidthMeters / 2.0
+                swerveConstants.wheelBaseMeters.divide(2.0),
+                -swerveConstants.trackWidthMeters.divide(2.0)
             ),
             Translation2d(
-                -swerveConstants.wheelBaseMeters / 2.0,
-                swerveConstants.trackWidthMeters / 2.0
+                -swerveConstants.wheelBaseMeters.divide(2.0),
+                swerveConstants.trackWidthMeters.divide(2.0)
             ),
             Translation2d(
-                -swerveConstants.wheelBaseMeters / 2.0,
-                -swerveConstants.trackWidthMeters / 2.0
+                -swerveConstants.wheelBaseMeters.divide(2.0),
+                -swerveConstants.trackWidthMeters.divide(2.0)
             )
         )
 

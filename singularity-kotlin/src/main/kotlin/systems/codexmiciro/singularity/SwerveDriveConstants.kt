@@ -6,11 +6,14 @@
 
 package systems.codexmicro.singularity
 
-final class SwerveDriveConstants(gyroId: Int, wheelBaseMeters: Double, trackWidthMeters: Double) {
+import edu.wpi.first.units.Distance
+import edu.wpi.first.units.Measure
+
+final class SwerveDriveConstants(gyroId: Int, wheelBaseMeters: Measure<Distance>, trackWidthMeters: Measure<Distance>) {
   var gyroId: Int
 
-  var wheelBaseMeters: Double
-  var trackWidthMeters: Double
+  var wheelBaseMeters: Measure<Distance>
+  var trackWidthMeters: Measure<Distance>
 
   init {
     this.gyroId = gyroId
