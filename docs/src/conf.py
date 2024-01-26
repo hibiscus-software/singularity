@@ -67,4 +67,12 @@ html_theme_options = {
   "sidebar_hide_name": True,
   "light_logo": "logo-light-mode.png",
   "dark_logo": "logo-dark-mode.png",
+    "light_css_variables": {
+      "color-brand-primary": "#689d6a",
+      "color-brand-content": "#689d6a"
+    },
+    "dark_css_variables": {
+      "color-brand-primary": "#8ec07c",
+      "color-brand-content": "#8ec07c"
+    },
 }
