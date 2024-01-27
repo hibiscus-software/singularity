@@ -2,5 +2,10 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google }",
-  "esbonio.sphinx.confDir": ""
+  "esbonio.sphinx.confDir": "",
+  "C_Cpp.default.configurationProvider": "vscode-wpilib",
+  "files.associations": {
+    "optional": "cpp",
+    "any": "cpp"
+  },
 }
