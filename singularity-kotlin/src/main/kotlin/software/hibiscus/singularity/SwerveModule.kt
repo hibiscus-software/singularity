@@ -1,21 +1,21 @@
 /*
- * Copyright (C), 2023 Codex Microsystems and contributors. Some rights
+ * Copyright (C), 2024 Hibiscus Software and contributors. Some rights
  * reserved. This work is licensed under the terms of the MIT license
  * which can be found in the root directory of this project.
  */
 
-package systems.codexmicro.singularity
+package software.hibiscus.singularity
 
 import com.ctre.phoenix6.hardware.CANcoder
 import com.ctre.phoenix6.hardware.TalonFX
 import edu.wpi.first.math.geometry.Rotation2d
-import systems.codexmicro.singularity.encoder.CANCoderSwerveEncoder
-import systems.codexmicro.singularity.encoder.SwerveEncoder
-import systems.codexmicro.singularity.encoder.SwerveEncoderType
-import systems.codexmicro.singularity.motor.SparkMaxSwerveMotor
-import systems.codexmicro.singularity.motor.SwerveMotor
-import systems.codexmicro.singularity.motor.SwerveMotorType
-import systems.codexmicro.singularity.motor.TalonFXSwerveMotor
+import software.hibiscus.singularity.encoder.CANCoderSwerveEncoder
+import software.hibiscus.singularity.encoder.SwerveEncoder
+import software.hibiscus.singularity.encoder.SwerveEncoderType
+import software.hibiscus.singularity.motor.SparkMaxSwerveMotor
+import software.hibiscus.singularity.motor.SwerveMotor
+import software.hibiscus.singularity.motor.SwerveMotorType
+import software.hibiscus.singularity.motor.TalonFXSwerveMotor
 
 class SwerveModule(
     moduleNumber: Int,

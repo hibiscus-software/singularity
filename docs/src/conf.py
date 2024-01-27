@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Singularity'
-copyright = '2023, Codex Microsystems and contributors. This work is licensed under the terms of the Creative Commons Attribution 4.0 International License.'
-author = 'Codex Microsystems and contributors'
+copyright = '2024, Hibiscus Software and contributors. This work is licensed under the terms of the Creative Commons Attribution 4.0 International License.'
+author = 'Hibiscus Software and contributors'
 
 
 # -- General configuration ---------------------------------------------------

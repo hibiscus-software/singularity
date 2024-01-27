@@ -2,7 +2,7 @@
 name = "singularity"
 version = "0.1.0"
 description = "A swerve drive library for FRC made easy."
-authors = ["Cody Wellman <cody@codexmicro.systems>"]
+authors = ["Hibiscus Software <cody@codexmicro.systems>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

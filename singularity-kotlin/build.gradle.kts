@@ -15,9 +15,14 @@ repositories {
     url = uri("https://frcmaven.wpi.edu/artifactory/release/")
   }
 
-  // CTRE Phoenix
+  // CTRE Phoenix 6
   maven {
     url = uri("https://maven.ctr-electronics.com/release/")
+  }
+
+  // Kauai Labs
+  maven {
+    url = uri("https://dev.studica.com/maven/release/2024/")
   }
 }
 
@@ -37,12 +42,16 @@ dependencies {
   implementation(libs.guava)
 
   // WPILib
-  implementation("edu.wpi.first.wpilibj:wpilibj-java:2024.1.1-beta-4")
-  implementation("edu.wpi.first.wpimath:wpimath-java:2024.1.1-beta-4")
-  implementation("edu.wpi.first.wpiutil:wpiutil-java:2024.1.1-beta-4")
+  implementation("edu.wpi.first.wpilibj:wpilibj-java:2024.2.1")
+  implementation("edu.wpi.first.wpimath:wpimath-java:2024.2.1")
+  implementation("edu.wpi.first.wpiutil:wpiutil-java:2024.2.1")
+  implementation("edu.wpi.first.wpiunits:wpiunits-java:2024.2.1")
 
-  // CTRE Phoenix
-  implementation("com.ctre.phoenix6:wpiapi-java:24.0.0-beta-5")
+  // CTRE Phoenix 6
+  implementation("com.ctre.phoenix6:wpiapi-java:24.1.0")
+
+  // Kauai Labs
+  implementation("com.kauailabs.navx.frc:navx-frc-java:2024.1.0")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
