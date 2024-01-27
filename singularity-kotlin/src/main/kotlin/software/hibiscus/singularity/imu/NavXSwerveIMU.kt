@@ -9,23 +9,73 @@ package software.hibiscus.singularity.imu
 import com.kauailabs.navx.frc.AHRS
 import edu.wpi.first.math.geometry.Rotation3d
 import edu.wpi.first.math.geometry.Translation3d
+import edu.wpi.first.wpilibj.I2C
+import edu.wpi.first.wpilibj.SPI
+import edu.wpi.first.wpilibj.SerialPort
 import java.util.Optional
 import software.hibiscus.singularity.util.Unimplemented
 
-class NavXSwerveIMU(navX: AHRS) : SwerveIMU() {
+/** Class used to represent the Kauai Labs NavX IMU. */
+class NavXSwerveIMU : SwerveIMU {
   /** The instantiated NavX */
-  private var navX: AHRS
+  private lateinit var navX: AHRS
 
-  /** The offset of the NavX as a {@link Rotation3d}. */
+  /** 
+   * The offset of the NavX as a
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html).
+   */
   override var offset: Rotation3d = Rotation3d()
 
   /** Whether the NavX is inverted. */
   override var isInverted: Boolean = false
 
-  @Unimplemented("NavX has no configuration API") override var hasConfigChanged: Boolean = false
+  /** NavX has no equivalent field. */
+  @Unimplemented("NavX has no Equivalent field") override var hasConfigChanged: Boolean = false
 
-  init {
-    this.navX = navX
+  /**
+   * Constructor for the [NavXSwerveIMU] class.
+   * 
+   * @param serialPort The serial port of the NavX as a
+   * [SerialPort.Port](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/SerialPort.Port.html).
+   */
+  constructor(serialPort: SerialPort.Port) {
+    try {
+      navX = AHRS(serialPort)
+    } catch (exception: RuntimeException) {
+      println("[ERROR]: Error Instantiating NavX: " + exception.message)
+    }
+
+    factoryDefaults()
+  }
+
+  /**
+   * Constructor for the [NavXSwerveIMU] class.
+   * 
+   * @param spiPort The SPI port of the NavX as a
+   * [SPI.Port](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/SPI.Port.html).
+   */
+  constructor(spiPort: SPI.Port) {
+    try {
+      navX = AHRS(spiPort)
+    } catch (exception: RuntimeException) {
+      println("[ERROR]: Error Instantiating NavX: " + exception.message)
+    }
+
+    factoryDefaults()
+  }
+
+  /**
+   * Constructor for the [NavXSwerveIMU] class.
+   * 
+   * @param i2cPort The I2C port of the NavX as a
+   * [I2C.Port](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/wpilibj/I2C.Port.html).
+   */
+  constructor(i2cPort: I2C.Port) {
+    try {
+      navX = AHRS(i2cPort)
+    } catch (exception: RuntimeException) {
+      println("[ERROR]: Error Instantiating NavX: " + exception.message)
+    }
 
     factoryDefaults()
   }
@@ -33,7 +83,8 @@ class NavXSwerveIMU(navX: AHRS) : SwerveIMU() {
   /**
    * Sets the offset of the NavX.
    *
-   * @param offset The offset of the NavX as a {@link Rotation3d}.
+   * @param offset The offset of the NavX as a
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html).
    */
   override fun setOffset(offset: Rotation3d) {
     this.offset = offset
@@ -49,27 +100,36 @@ class NavXSwerveIMU(navX: AHRS) : SwerveIMU() {
   }
 
   /**
-   * Gets the {@link Rotation3d} from the NavX without zeroing.
+   * Gets the
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the NavX without zeroing.
    *
-   * @return The {@link Rotation3d} from the NavX.
+   * @return The [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the NavX.
    */
   override fun getRawRotation3d(): Rotation3d {
     if (isInverted) return navX.rotation3d.unaryMinus() else return navX.rotation3d
   }
 
   /**
-   * Gets the {@link Rotation3d} from the NavX.
+   * Gets the
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the NavX.
    *
-   * @return The {@link Rotation3d} from the NavX.
+   * @return The [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the NavX.
    */
   override fun getRotation3d(): Rotation3d {
     return getRawRotation3d().minus(offset)
   }
 
   /**
-   * Get's the {@link Translation3d} from the NavX in meters per second squared.
+   * Get's the
+   * [Translation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Translation3d.html)
+   * from the NavX in meters per second squared.
    *
-   * @return The {@link Translation3d} from the NavX.
+   * @return The [Translation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Translation3d.html)
+   * from the NavX.
    */
   override fun getAcceleration(): Optional<Translation3d> {
     return Optional.of(
@@ -81,13 +141,15 @@ class NavXSwerveIMU(navX: AHRS) : SwerveIMU() {
     )
   }
 
-  @Unimplemented("NavX has no configuration API") override fun burnConfig() {}
+  /** NavX has no equivalent function. */
+  @Unimplemented("NavX has no Equivalent Function") override fun burnConfig() {}
 
-  /** Reset NavX to factory defaults. */
+  /** Resets the NavX to factory defaults. */
   override fun factoryDefaults() {
     navX.reset()
   }
 
+  /** NavX has no equivalent function. */
   @Unimplemented("NavX has no Equivalent Function") override fun clearFaults() {}
 
   /**

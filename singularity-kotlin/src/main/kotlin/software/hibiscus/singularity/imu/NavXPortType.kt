@@ -6,6 +6,7 @@
 
 package software.hibiscus.singularity.imu
 
+/** Enum used to store all types of ports used to connect to the NavX */
 enum class NavXPortType {
   kNone,
   kSerialPort,

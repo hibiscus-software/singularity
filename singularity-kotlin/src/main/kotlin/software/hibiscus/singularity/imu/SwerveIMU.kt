@@ -10,8 +10,12 @@ import edu.wpi.first.math.geometry.Rotation3d
 import edu.wpi.first.math.geometry.Translation3d
 import java.util.Optional
 
-abstract class SwerveIMU() {
-  /** The offset of the IMU as a {@link Rotation3d}. */
+/** Abstract class used to represent a generic IMU. */
+abstract class SwerveIMU {
+  /**
+   * The offset of the IMU as a
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html).
+   */
   abstract var offset: Rotation3d
 
   /** Whether the IMU is inverted. */
@@ -23,7 +27,8 @@ abstract class SwerveIMU() {
   /**
    * Sets the offset of the IMU.
    *
-   * @param offset The offset of the IMU as a {@link Rotation3d}.
+   * @param offset The offset of the IMU as a
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html).
    */
   abstract fun setOffset(offset: Rotation3d)
 
@@ -35,33 +40,42 @@ abstract class SwerveIMU() {
   abstract fun setInverted(isInverted: Boolean)
 
   /**
-   * Gets the {@link Rotation3d} from the IMU without zeroing.
+   * Gets the
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the IMU without zeroing.
    *
-   * @return The {@link Rotation3d} from the IMU.
+   * @return The [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the IMU.
    */
   abstract fun getRawRotation3d(): Rotation3d
 
   /**
-   * Gets the {@link Rotation3d} from the IMU.
+   * Gets the
+   * [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the IMU.
    *
-   * @return The {@link Rotation3d} from the IMU.
+   * @return The [Rotation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation3d.html)
+   * from the IMU.
    */
   abstract fun getRotation3d(): Rotation3d
 
   /**
-   * Get's the {@link Translation3d} from the IMU in meters per second squared.
+   * Get's the
+   * [Translation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Translation3d.html)
+   * from the IMU in meters per second squared.
    *
-   * @return The {@link Translation3d} from the IMU.
+   * @return The [Translation3d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Translation3d.html)
+   * from the IMU.
    */
   abstract fun getAcceleration(): Optional<Translation3d>
 
   /** Burns the configuration to the IMU. */
   abstract fun burnConfig()
 
-  /** Reset IMU to factory defaults. */
+  /** Resets the IMU to factory defaults. */
   abstract fun factoryDefaults()
 
-  /** Clear faults on the IMU. */
+  /** Clears faults on the IMU. */
   abstract fun clearFaults()
 
   /**

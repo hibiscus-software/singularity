@@ -6,20 +6,64 @@
 
 package software.hibiscus.singularity.encoder
 
-abstract class SwerveEncoder() {
-  abstract fun getPosition(): Double
+import edu.wpi.first.math.geometry.Rotation2d
 
-  abstract fun getVelocity(): Double
+/** Abstract class used to represent a generic encoder. */
+abstract class SwerveEncoder {
+  /**
+   * The offset of the encoder as a
+   * [Rotation2d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation2d.html).
+   */
+  abstract var offset: Rotation2d
 
-  abstract fun setOffset(offset: Double)
+  /** Whether the encoder is inverted. */
+  abstract var isInverted: Boolean
 
+  /** Whether the configuration has changed. */
+  abstract var hasConfigChanged: Boolean
+
+  /**
+   * Sets the offset of the encoder.
+   *
+   * @param offset The offset of the encoder as a
+   * [Rotation2d](https://github.wpilib.org/allwpilib/docs/release/java/edu/wpi/first/math/geometry/Rotation2d.html).
+   */
+  abstract fun setOffset(offset: Rotation2d)
+
+  /**
+   * Sets the inversion of the encoder.
+   *
+   * @param isInverted Whether the encoder is inverted.
+   */
   abstract fun setInverted(isInverted: Boolean)
 
+  /**
+   * Get's the position from the encoder in degrees.
+   * 
+   * @return The position from the encoder in degrees.
+   */
+  abstract fun getPosition(): Double
+
+  /**
+   * Get's the velocity from the encoder in degrees per second.
+   * 
+   * @return The velocity from the encoder in degrees per second.
+   */
+  abstract fun getVelocity(): Double
+
+  /** Burns the configuration to the encoder. */
   abstract fun burnConfig()
 
+  /** Resets the encoder to factory defaults. */
   abstract fun factoryDefaults()
 
+  /** Clears faults on the encoder. */
   abstract fun clearFaults()
 
+  /**
+   * Gets the instantiated encoder object.
+   *
+   * @return The instantiated encoder object.
+   */
   abstract fun getEncoder(): Any
 }

@@ -6,7 +6,9 @@
 
 package software.hibiscus.singularity.encoder
 
+/** Enum used to store all types of Encoders that can be used with a swerve drive robot. */
 enum class SwerveEncoderType {
-  NONE,
-  CANCODER,
+  kNone,
+  kCANAndCoder,
+  kCANCoder,
 }

@@ -6,8 +6,6 @@
 
 package software.hibiscus.singularity
 
-import com.ctre.phoenix6.hardware.Pigeon2
-import com.kauailabs.navx.frc.AHRS
 import edu.wpi.first.math.geometry.Translation2d
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry
@@ -16,11 +14,11 @@ import edu.wpi.first.util.sendable.SendableBuilder
 import edu.wpi.first.util.sendable.SendableRegistry
 import edu.wpi.first.wpilibj.drive.RobotDriveBase
 import software.hibiscus.singularity.encoder.SwerveEncoderType
-import software.hibiscus.singularity.encoder.SwerveIMUType
 import software.hibiscus.singularity.imu.NavXPortType
 import software.hibiscus.singularity.imu.NavXSwerveIMU
 import software.hibiscus.singularity.imu.Pigeon2SwerveIMU
 import software.hibiscus.singularity.imu.SwerveIMU
+import software.hibiscus.singularity.imu.SwerveIMUType
 import software.hibiscus.singularity.motor.SwerveMotorType
 
 class SwerveDrive(
@@ -49,31 +47,14 @@ class SwerveDrive(
     // IMU config
     when (imuType) {
       SwerveIMUType.kNone -> println("[ERROR]: No IMU Type Selected for IMU")
-      SwerveIMUType.kPigeon2 -> imu = Pigeon2SwerveIMU(Pigeon2(swerveConstants.imuId))
+      SwerveIMUType.kPigeon2 ->
+          imu = Pigeon2SwerveIMU(swerveConstants.imuId, swerveConstants.imuCanBusName)
       SwerveIMUType.kNavX -> {
         when (swerveConstants.navXPortType) {
           NavXPortType.kNone -> println("[ERROR]: No NavX Port Type Selected for NavX Port")
-          NavXPortType.kSerialPort -> {
-            try {
-              imu = NavXSwerveIMU(AHRS(swerveConstants.navXPort.serialPort))
-            } catch (exception: RuntimeException) {
-              println("[ERROR]: Error Instantiating NavX: " + exception.message)
-            }
-          }
-          NavXPortType.kSPI -> {
-            try {
-              imu = NavXSwerveIMU(AHRS(swerveConstants.navXPort.spiPort))
-            } catch (exception: RuntimeException) {
-              println("[ERROR]: Error Instantiating NavX: " + exception.message)
-            }
-          }
-          NavXPortType.kI2C -> {
-            try {
-              imu = NavXSwerveIMU(AHRS(swerveConstants.navXPort.i2cPort))
-            } catch (exception: RuntimeException) {
-              println("[ERROR]: Error Instantiating NavX: " + exception.message)
-            }
-          }
+          NavXPortType.kSerialPort -> imu = NavXSwerveIMU(swerveConstants.navXPort.serialPort)
+          NavXPortType.kSPI -> imu = NavXSwerveIMU(swerveConstants.navXPort.spiPort)
+          NavXPortType.kI2C -> imu = NavXSwerveIMU(swerveConstants.navXPort.i2cPort)
         }
       }
     }

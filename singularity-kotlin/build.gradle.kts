@@ -4,6 +4,8 @@ plugins {
 
   // Apply the java-library plugin for API and implementation separation.
   `java-library`
+
+  id("org.jetbrains.dokka") version "1.9.10"
 }
 
 repositories {
@@ -23,6 +25,11 @@ repositories {
   // Kauai Labs
   maven {
     url = uri("https://dev.studica.com/maven/release/2024/")
+  }
+
+  //Redux Robotics
+  maven {
+    url = uri("https://maven.reduxrobotics.com/")
   }
 }
 
@@ -52,6 +59,9 @@ dependencies {
 
   // Kauai Labs
   implementation("com.kauailabs.navx.frc:navx-frc-java:2024.1.0")
+
+  //Redux Robotics
+  implementation("com.reduxrobotics.frc:ReduxLib-java:2024.1.1")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

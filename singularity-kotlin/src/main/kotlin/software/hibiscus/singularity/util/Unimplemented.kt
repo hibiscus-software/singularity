@@ -7,7 +7,7 @@
 package software.hibiscus.singularity.util
 
 /**
- * Specifies that a field or function unimplemented.
+ * Annotation used to specify that a field or function is unimplemented.
  *
  * @param reason The reason that a field or function is unimplemented.
  */

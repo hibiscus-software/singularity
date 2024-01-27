@@ -13,10 +13,12 @@ import software.hibiscus.singularity.imu.NavXPortType
 
 final class SwerveDriveConstants(
     imuId: Int,
+    imuCanBusName: String,
     wheelBaseMeters: Measure<Distance>,
     trackWidthMeters: Measure<Distance>
 ) {
   var imuId: Int
+  var imuCanBusName: String
 
   var wheelBaseMeters: Measure<Distance>
   var trackWidthMeters: Measure<Distance>
@@ -26,6 +28,7 @@ final class SwerveDriveConstants(
 
   init {
     this.imuId = imuId
+    this.imuCanBusName = imuCanBusName
 
     this.wheelBaseMeters = wheelBaseMeters
     this.trackWidthMeters = trackWidthMeters
@@ -33,11 +36,12 @@ final class SwerveDriveConstants(
 
   constructor(
       imuId: Int,
+      imuCanBusName: String,
       wheelBaseMeters: Measure<Distance>,
       trackWidthMeters: Measure<Distance>,
       navXPortType: NavXPortType,
       navXPort: NavXPort
-  ) : this(imuId, wheelBaseMeters, trackWidthMeters) {
+  ) : this(imuId, imuCanBusName, wheelBaseMeters, trackWidthMeters) {
     this.navXPortType = navXPortType
     this.navXPort = navXPort
   }
