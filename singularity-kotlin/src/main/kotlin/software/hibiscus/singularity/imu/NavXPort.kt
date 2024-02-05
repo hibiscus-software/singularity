@@ -21,6 +21,14 @@ final class NavXPort {
   /** The I2C port of the NavX. */
   lateinit var i2cPort: I2C.Port
 
+  /** Enum used to store all types of ports used to connect to the NavX */
+  enum NavXPortType {
+    kNone,
+    kSerialPort,
+    kSPI,
+    kI2C
+  }
+
   /**
    * Constructor for the [NavXPort] class.
    * @param serialPort The serial port of the NavX as a

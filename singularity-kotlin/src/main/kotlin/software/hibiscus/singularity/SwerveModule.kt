@@ -11,7 +11,7 @@ import com.ctre.phoenix6.hardware.TalonFX
 import edu.wpi.first.math.geometry.Rotation2d
 import software.hibiscus.singularity.encoder.CANCoderSwerveEncoder
 import software.hibiscus.singularity.encoder.SwerveEncoder
-import software.hibiscus.singularity.encoder.SwerveEncoderType
+import software.hibiscus.singularity.encoder.SwerveEncoder.SwerveEncoderType
 import software.hibiscus.singularity.motor.SparkMaxSwerveMotor
 import software.hibiscus.singularity.motor.SwerveMotor
 import software.hibiscus.singularity.motor.SwerveMotorType
@@ -71,8 +71,8 @@ class SwerveModule(
 
     // Encoder config
     when (encoderType) {
-      SwerveEncoderType.CANCODER ->
-          encoder = CANCoderSwerveEncoder(CANcoder(moduleConstants.encoderId))
+      SwerveEncoderType.kCANCoder ->
+          encoder = CANCoderSwerveEncoder(moduleConstants.encoderId)
       else -> {
         println("[ERROR]: No Encoder Type Selected")
       }

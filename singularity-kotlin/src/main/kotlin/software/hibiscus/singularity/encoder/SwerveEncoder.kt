@@ -22,6 +22,13 @@ abstract class SwerveEncoder {
   /** Whether the configuration has changed. */
   abstract var hasConfigChanged: Boolean
 
+  /** Enum used to store all types of Encoders that can be used with a swerve drive robot. */
+  enum class SwerveEncoderType {
+    kNone,
+    kCANAndCoder,
+    kCANCoder,
+  }
+
   /**
    * Sets the offset of the encoder.
    *

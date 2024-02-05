@@ -6,6 +6,7 @@
 
 package software.hibiscus.singularity
 
+import edu.wpi.first.math.geometry.Rotation2d
 import edu.wpi.first.math.geometry.Translation2d
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry
@@ -13,12 +14,12 @@ import edu.wpi.first.util.sendable.Sendable
 import edu.wpi.first.util.sendable.SendableBuilder
 import edu.wpi.first.util.sendable.SendableRegistry
 import edu.wpi.first.wpilibj.drive.RobotDriveBase
-import software.hibiscus.singularity.encoder.SwerveEncoderType
-import software.hibiscus.singularity.imu.NavXPortType
+import software.hibiscus.singularity.encoder.SwerveEncoder.SwerveEncoderType
+import software.hibiscus.singularity.imu.NavXPort.NavXPortType
 import software.hibiscus.singularity.imu.NavXSwerveIMU
 import software.hibiscus.singularity.imu.Pigeon2SwerveIMU
 import software.hibiscus.singularity.imu.SwerveIMU
-import software.hibiscus.singularity.imu.SwerveIMUType
+import software.hibiscus.singularity.imu.SwerveIMU.SwerveIMUType
 import software.hibiscus.singularity.motor.SwerveMotorType
 
 class SwerveDrive(
@@ -82,6 +83,7 @@ class SwerveDrive(
     swerveOdometry =
         SwerveDriveOdometry(
             swerveKinematics,
+            Rotation2d(imu.getRotation3d().getY(), imu.getRotation3d().getY())
         )
   }
 

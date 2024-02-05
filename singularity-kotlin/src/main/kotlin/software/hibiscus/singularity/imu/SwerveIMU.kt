@@ -24,6 +24,13 @@ abstract class SwerveIMU {
   /** Whether the configuration has changed. */
   abstract var hasConfigChanged: Boolean
 
+  /** Enum used to store all types of IMUs that can be used with a swerve drive robot. */
+  enum SwerveIMUType {
+    kNone,
+    kPigeon2,
+    kNavX
+  }
+
   /**
    * Sets the offset of the IMU.
    *

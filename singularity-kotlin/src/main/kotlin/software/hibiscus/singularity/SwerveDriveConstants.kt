@@ -8,8 +8,8 @@ package software.hibiscus.singularity
 
 import edu.wpi.first.units.Distance
 import edu.wpi.first.units.Measure
+import software.hibiscus.singularity.imu.NavXPort.NavXPortType
 import software.hibiscus.singularity.imu.NavXPort
-import software.hibiscus.singularity.imu.NavXPortType
 
 final class SwerveDriveConstants(
     imuId: Int,
